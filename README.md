@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: billyan2018/setup-pmd@v1
-      - name: run-pmd
+      - name: PMD Code Analyzer Action
+        uses: billyan2018/setup-pmd@PMDAnalyzer1.0
         run: pmd -d ./src -R category/apex/design.xml -f text
 ```
 
