@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: sfdx-actions/setup-pmd@v1
+      - uses: billyan2018/setup-pmd@v1
       - name: run-pmd
-        run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
+        run: pmd -d ./src -R category/apex/design.xml -f text
 ```
 
 ## License
