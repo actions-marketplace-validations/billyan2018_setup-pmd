@@ -1,5 +1,5 @@
-const core = require('@actions/core')
-const exec = require('child_process').exec
+const core = require('@actions/core');
+const exec = require('child_process').exec;
 const version = '6.30.0';
 
 try {
@@ -10,24 +10,24 @@ try {
 
 function installPMD(){
   var download = `wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F${version}/pmd-bin-${version}.zip -P /tmp`;
-  var unzip = `unzip /tmp/pmd-bin-${6.30.0}.zip -d /tmp`;
-  var mk = 'mkdir $HOME/pmd'
-  var mv = `mv /tmp/pmd-bin-${6.30.0}/* $HOME/pmd`; //*/
+  var unzip = `unzip /tmp/pmd-bin-${version}.zip -d /tmp`;
+  var mk = 'mkdir $HOME/pmd';
+  var mv = `mv /tmp/pmd-bin-${version}/* $HOME/pmd`; //*/
   exec(download+' && '+unzip+' && '+mk+' && '+mv, function(error, stdout, stderr){
-    if(error) core.setFailed(stderr)
-    core.debug(stdout)
-    referencePMD()
+    if(error) core.setFailed(stderr);
+    core.debug(stdout);
+    referencePMD();
   })
 }
 
 function referencePMD(){
-  var mk = 'sudo mkdir /snap/bin && sudo chmod -R 757 /snap/bin'
+  var mk = 'sudo mkdir /snap/bin && sudo chmod -R 757 /snap/bin';
   var cmd = 
 `sudo echo '#! /bin/bash
-$HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`
-  var cm = 'chmod +x /snap/bin/pmd'
+$HOME/pmd/bin/run.sh pmd "$@"' > /snap/bin/pmd`;
+  var cm = 'chmod +x /snap/bin/pmd';
   exec(mk+' && '+cmd+' && '+cm, function(error, stdout, stderr){
-    if(error) core.setFailed(stderr)
-    core.debug(stdout)
+    if(error) core.setFailed(stderr);
+    core.debug(stdout);
   })
 }
