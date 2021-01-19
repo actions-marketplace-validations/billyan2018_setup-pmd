@@ -1,5 +1,5 @@
-name: 'PMD Source Code Analyzer Action'
-author: Felipe Echanique Torres
+name: 'PMD Code Analyzer Action'
+author: Bill Yan
 description: 'This action allows to use PMD Source Code Analyzer from GitHub Actions'
 runs:
   using: 'node12'
